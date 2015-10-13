@@ -4,3 +4,4 @@
 .idea/
 node_modules/
 public/www/lib/
+public/www-built/

@@ -1,8 +1,8 @@
 
-define(['angular', 'angularAnimate', 'angularUiRouter', 'angularStrap', 'angularStrapTpl', 'js/controllers'], function () {
+define(['angular', 'angularAnimate', 'angularUiRouter', 'angularStrap', 'angularStrapTpl', 'controllers'], function () {
     angular.module('routeApp', ['ngAnimate', 'ui.router', 'mgcrea.ngStrap', 'useManagerCtrls'])
 
-        .config(function ($stateProvider, $urlRouterProvider) {
+        .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise('/index');
 
             $stateProvider
@@ -50,5 +50,5 @@ define(['angular', 'angularAnimate', 'angularUiRouter', 'angularStrap', 'angular
                     url: '/addusertype',
                     templateUrl: 'tpls/addusertype.html'
                 });
-        });
+        }]);
 });

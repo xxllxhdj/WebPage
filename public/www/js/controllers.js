@@ -5,7 +5,7 @@ define(['angular'], function () {
         .controller('useManager', ['$scope', '$state', function ($scope, $state) {
             $scope.addUserType = function() {
                 $state.go("index.usemanager.addusertype");
-            }
+            };
         }])
         .controller('NavBarCtrl', ['$scope', '$q', '$http', '$alert', function ($scope, $q, $http, $alert) {
             $scope.popover = {
