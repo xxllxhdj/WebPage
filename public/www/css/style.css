@@ -1,0 +1,34 @@
+
+body {
+    position: relative;
+    padding-top: 70px;
+}
+
+.demo-navbar {
+    border-radius: 0!important;
+}
+
+.navbar-header .logo {
+    height: 50px;
+    padding: 5px 0;
+}
+
+.navbar-right-side {
+    color: #9d9d9d;
+    margin-right: 0;
+}
+
+.user-card {
+    height: 50px;
+    line-height: 50px;
+}
+.user-card > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.ui-group {
+    margin-bottom: 0;
+}
