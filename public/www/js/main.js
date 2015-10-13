@@ -1,15 +1,15 @@
 
 requirejs.config({
-    baseUrl: '../www',
+    baseUrl: 'js',
     paths: {
-        app: 'js/app',
-        controllers: 'js/controllers',
-        jquery: 'lib/jquery/dist/jquery',
-        angular: 'lib/angular/angular',
-        angularAnimate: 'lib/angular-animate/angular-animate',
-        angularUiRouter: 'lib/angular-ui-router/release/angular-ui-router',
-        angularStrap: 'lib/angular-strap/dist/angular-strap',
-        angularStrapTpl: 'lib/angular-strap/dist/angular-strap.tpl'
+        app: 'app',
+        controllers: 'controllers',
+        jquery: '../lib/jquery/dist/jquery',
+        angular: '../lib/angular/angular',
+        angularAnimate: '../lib/angular-animate/angular-animate',
+        angularUiRouter: '../lib/angular-ui-router/release/angular-ui-router',
+        angularStrap: '../lib/angular-strap/dist/angular-strap',
+        angularStrapTpl: '../lib/angular-strap/dist/angular-strap.tpl'
     },
     shim: {
         //angular: {

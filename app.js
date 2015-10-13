@@ -6,7 +6,7 @@ var app = express();
 var config = require('./config.js');
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public', 'www')));
+app.use(express.static(path.join(__dirname, 'public', config.webDir)));
 
 app.use(bodyParser.json({
     limit: '1mb'
@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'public', 'www', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', config.webDir, 'index.html'));
 });
 
 app.post('/admin', function (req, res) {
