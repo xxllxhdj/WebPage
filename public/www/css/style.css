@@ -4,16 +4,44 @@ body {
     padding-top: 70px;
 }
 
+@media (min-width: 768px) {
+    .navbar-collapse.collapse {
+        float: left;
+    }
+}
+
 .demo-navbar {
     border-radius: 0!important;
+}
+.demo-navbar .navbar-header {
+    float: left;
+    margin-left: 0;
 }
 
 .navbar-header .logo {
     height: 50px;
     padding: 5px 0;
 }
+.navbar-header .navbar-toggle-btn {
+    height: 50px;
+    padding: 0;
+    margin: 0 15px;
+    border: none;
+}
+.navbar-inverse .navbar-toggle-btn:hover,
+.navbar-inverse .navbar-toggle-btn:focus {
+    background-color: transparent;
+}
+.navbar-inverse .navbar-toggle-btn .icon-bar {
+    background-color: #9d9d9d;
+}
+.navbar-inverse .navbar-toggle-btn:hover .icon-bar,
+.navbar-inverse .navbar-toggle-btn:focus .icon-bar{
+    background-color: #fff;
+}
 
 .navbar-right-side {
+    float: right;
     color: #9d9d9d;
     margin-right: 0;
 }
