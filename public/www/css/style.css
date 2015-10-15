@@ -9,6 +9,11 @@ body {
         float: left;
     }
 }
+@media (min-width: 768px) {
+    .demo-navbar > .container .navbar-brand {
+        margin-left: 0;
+    }
+}
 
 .demo-navbar {
     border-radius: 0!important;
@@ -17,8 +22,10 @@ body {
     float: left;
     margin-left: 0;
 }
-
-.navbar-header .logo {
+.navbar-header .navbar-brand {
+    padding: 0;
+}
+.navbar-brand .logo {
     height: 50px;
     padding: 5px 0;
 }
