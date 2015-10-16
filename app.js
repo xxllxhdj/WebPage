@@ -4,6 +4,7 @@ var path = require('path');
 var bodyParser = require("body-parser");
 var app = express();
 var config = require('./config.js');
+var cons = require('consolidate');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public', config.webDir)));
@@ -15,8 +16,13 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.engine('server.view.html', cons.swig);
+app.set('view engine', 'server.view.html');
+app.set('views', path.join(__dirname, 'public', config.webDir));
+
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'public', config.webDir, config.webIndex));
+    //res.sendFile(path.join(__dirname, 'public', config.webDir, 'server.view.html'));
+    res.render('index');
 });
 
 app.post('/admin', function (req, res) {
