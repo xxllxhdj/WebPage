@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'public', config.webDir, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', config.webDir, config.webIndex));
 });
 
 app.post('/admin', function (req, res) {

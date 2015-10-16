@@ -10,13 +10,13 @@ module.exports = function (grunt) {
                     'public/www/lib/bootstrap-additions/dist/bootstrap-additions.css',
                     'public/www/css/style.css'
                 ],
-                dest: 'public/www/css/all.css'
+                dest: 'public/www-built/css/all.css'
             }
         },
         cssmin: {
             css: {
-                src: 'public/www/css/all.css',
-                dest: 'public/www-built/css/all.css'
+                src: 'public/www-built/css/all.css',
+                dest: 'public/www-built/css/all.min.css'
             }
         },
 
@@ -62,13 +62,9 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks("grunt-contrib-requirejs");
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-css');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
     grunt.registerTask('default', ['jshint', 'build']);
-    grunt.registerTask('build', 'requirejs');
-    
-    //grunt.loadNpmTasks('grunt-css');
-    //grunt.loadNpmTasks('grunt-contrib-concat');
-
-    //grunt.registerTask('default', ['jshint', 'concat', 'build']);
-    //grunt.registerTask('build', ['requirejs', 'cssmin']);
+    grunt.registerTask('build', ['requirejs', 'concat', 'cssmin']);
 };
