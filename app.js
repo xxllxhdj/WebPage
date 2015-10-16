@@ -20,21 +20,21 @@ app.engine('server.view.html', cons.swig);
 app.set('view engine', 'server.view.html');
 app.set('views', path.join(__dirname, 'public', config.webDir));
 
-app.get('/*', function (req, res) {
-    //res.sendFile(path.join(__dirname, 'public', config.webDir, 'server.view.html'));
-    res.render('index');
-});
-
 app.post('/admin', function (req, res) {
     //console.log('/admin:' + req.query.method);
     //console.log('/admin:' + JSON.stringify(req.body));
     res.send('Hello World');
 });
 
-app.get('/api', function (req, res) {
+app.route('/api').get(function (req, res) {
     //console.log('/api:' + req.query.method);
     //console.log('/api:' + JSON.stringify(req.query));
     res.send('Hello World');
+});
+
+app.route('/*').get(function (req, res) {
+    //res.sendFile(path.join(__dirname, 'public', config.webDir, 'server.view.html'));
+    res.render('index');
 });
 
 var server = app.listen(config.port, function () {
