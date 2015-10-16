@@ -5,27 +5,27 @@ module.exports = function (grunt) {
         concat: {
             css: {
                 src: [
-                    'public/www/lib/bootstrap/dist/css/bootstrap.css',
-                    'public/www/lib/angular-motion/dist/angular-motion.css',
-                    'public/www/lib/bootstrap-additions/dist/bootstrap-additions.css',
-                    'public/www/css/style.css'
+                    'www/lib/bootstrap/dist/css/bootstrap.css',
+                    'www/lib/angular-motion/dist/angular-motion.css',
+                    'www/lib/bootstrap-additions/dist/bootstrap-additions.css',
+                    'www/css/style.css'
                 ],
-                dest: 'public/www-built/css/all.css'
+                dest: 'www-built/css/all.css'
             }
         },
         cssmin: {
             css: {
-                src: 'public/www-built/css/all.css',
-                dest: 'public/www-built/css/all.min.css'
+                src: 'www-built/css/all.css',
+                dest: 'www-built/css/all.min.css'
             }
         },
 
         requirejs: {
             std: {
                 options: {
-                    appDir: 'public/www',
-                    mainConfigFile: 'public/www/js/main.js',
-                    dir: 'public/www-built',
+                    appDir: 'www',
+                    mainConfigFile: 'www/js/main.js',
+                    dir: 'www-built',
                     removeCombined: true,
                     modules: [
                         {
@@ -56,7 +56,7 @@ module.exports = function (grunt) {
                     angular: true
                 }
             },
-            all: ['public/www/js/*.js']
+            all: ['www/js/*.js']
         }
     });
 

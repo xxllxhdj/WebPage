@@ -3,5 +3,5 @@
 
 .idea/
 node_modules/
-public/www/lib/
-public/www-built/
+www/lib/
+www-built/

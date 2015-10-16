@@ -7,7 +7,7 @@ var config = require('./config.js');
 var cons = require('consolidate');
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public', config.webDir)));
+app.use(express.static(path.join(__dirname, config.webDir)));
 
 app.use(bodyParser.json({
     limit: '1mb'
@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
 
 app.engine('server.view.html', cons.swig);
 app.set('view engine', 'server.view.html');
-app.set('views', path.join(__dirname, 'public', config.webDir));
+app.set('views', path.join(__dirname, config.webDir));
 
 app.post('/admin', function (req, res) {
     //console.log('/admin:' + req.query.method);
