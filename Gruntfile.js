@@ -2,6 +2,24 @@
 module.exports = function (grunt) {
 
     grunt.initConfig({
+        concat: {
+            css: {
+                src: [
+                    'public/www/lib/bootstrap/dist/css/bootstrap.css',
+                    'public/www/lib/angular-motion/dist/angular-motion.css',
+                    'public/www/lib/bootstrap-additions/dist/bootstrap-additions.css',
+                    'public/www/css/style.css'
+                ],
+                dest: 'public/www/css/all.css'
+            }
+        },
+        cssmin: {
+            css: {
+                src: 'public/www/css/all.css',
+                dest: 'public/www-built/css/all.css'
+            }
+        },
+
         requirejs: {
             std: {
                 options: {
@@ -47,4 +65,10 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', ['jshint', 'build']);
     grunt.registerTask('build', 'requirejs');
+    
+    //grunt.loadNpmTasks('grunt-css');
+    //grunt.loadNpmTasks('grunt-contrib-concat');
+
+    //grunt.registerTask('default', ['jshint', 'concat', 'build']);
+    //grunt.registerTask('build', ['requirejs', 'cssmin']);
 };
