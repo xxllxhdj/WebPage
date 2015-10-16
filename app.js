@@ -20,7 +20,7 @@ app.engine('server.view.html', cons.swig);
 app.set('view engine', 'server.view.html');
 app.set('views', path.join(__dirname, 'public', config.webDir));
 
-app.get('/', function (req, res) {
+app.get('/*', function (req, res) {
     //res.sendFile(path.join(__dirname, 'public', config.webDir, 'server.view.html'));
     res.render('index');
 });
