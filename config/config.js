@@ -124,11 +124,42 @@ var initGlobalConfigFolders = function (config, assets) {
 };
 
 /**
+ * Initialize global configuration files
+ */
+var initGlobalConfigFiles = function (config, assets) {
+    // Appending files
+    config.files = {
+        server: {}
+    };
+
+    // Setting Globbed model files
+    //config.files.server.models = getGlobbedPaths(assets.server.models);
+
+    // Setting Globbed route files
+    config.files.server.routes = getGlobbedPaths(assets.server.routes);
+
+    // Setting Globbed config files
+    //config.files.server.configs = getGlobbedPaths(assets.server.config);
+
+    // Setting Globbed socket files
+    //config.files.server.sockets = getGlobbedPaths(assets.server.sockets);
+};
+
+/**
  * Initialize global configuration
  */
 var initGlobalConfig = function () {
     // Validate NODE_ENV existence
     validateEnvironmentVariable();
+
+    // Get the default assets
+    var defaultAssets = require(path.join(process.cwd(), 'config/assets/default'));
+
+    // Get the current assets
+    var environmentAssets = require(path.join(process.cwd(), 'config/assets/', process.env.NODE_ENV)) || {};
+
+    // Merge assets
+    var assets = _.merge(defaultAssets, environmentAssets);
 
     // Get the default config
     var defaultConfig = require(path.join(process.cwd(), 'config/env/default'));
@@ -149,6 +180,9 @@ var initGlobalConfig = function () {
     if (process.env.NODE_ENV !== 'test') {
         config = _.merge(config, (fs.existsSync(path.join(process.cwd(), 'config/env/local.js')) && require(path.join(process.cwd(), 'config/env/local.js'))) || {});
     }
+
+    // Initialize global globbed files
+    initGlobalConfigFiles(config, assets);
 
     // Validate Secure SSL mode can be used
     //validateSecureMode(config);

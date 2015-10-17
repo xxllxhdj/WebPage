@@ -172,25 +172,9 @@ module.exports.initModulesClientRoutes = function (app) {
  * Configure the modules server routes
  */
 module.exports.initModulesServerRoutes = function (app) {
-//    // Globbing routing files
-//    config.files.server.routes.forEach(function (routePath) {
-//        require(path.resolve(routePath))(app);
-//    });
-    app.post('/admin', function (req, res) {
-        //console.log('/admin:' + req.query.method);
-        //console.log('/admin:' + JSON.stringify(req.body));
-        res.send('Hello World');
-    });
-
-    app.route('/api').get(function (req, res) {
-        //console.log('/api:' + req.query.method);
-        //console.log('/api:' + JSON.stringify(req.query));
-        res.send('Hello World');
-    });
-
-    app.route('/*').get(function (req, res) {
-        //res.sendFile(path.join(__dirname, 'public', config.webDir, 'server.view.html'));
-        res.render('index');
+    // Globbing routing files
+    config.files.server.routes.forEach(function (routePath) {
+        require(path.resolve(routePath))(app);
     });
 };
 
