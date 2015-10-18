@@ -2,7 +2,7 @@
 
 module.exports = {
   server: {
-    //models: 'modules/*/server/models/**/*.js',
+    models: ['server/*/models/*.js'],
     routes: ['server/*/routes/*.js']
   }
 };

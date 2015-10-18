@@ -22,6 +22,7 @@
     "helmet": "^0.12.0",
     "lodash": "^3.10.1",
     "method-override": "^2.3.5",
+    "mongoose": "^4.1.11",
     "morgan": "^1.6.1",
     "multer": "^0.1.8",
     "swig": "^1.4.2"
