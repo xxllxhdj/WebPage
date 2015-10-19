@@ -8,7 +8,7 @@ var config = require('../config'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
-    //MongoStore = require('connect-mongo')(session),
+    MongoStore = require('connect-mongo')(session),
     multer = require('multer'),
     //favicon = require('serve-favicon'),
     compress = require('compression'),
@@ -116,11 +116,11 @@ module.exports.initSession = function (app, db) {
             httpOnly: config.sessionCookie.httpOnly,
             secure: config.sessionCookie.secure && config.secure.ssl
         },
-        key: config.sessionKey//,
-        //store: new MongoStore({
-        //    mongooseConnection: db.connection,
-        //    collection: config.sessionCollection
-        //})
+        key: config.sessionKey,
+        store: new MongoStore({
+            mongooseConnection: db.connection,
+            collection: config.sessionCollection
+        })
     }));
 };
 
@@ -167,6 +167,15 @@ module.exports.initModulesClientRoutes = function (app) {
     app.use(express.static(path.resolve('./' + config.webDir)));
 };
 
+/**
+ * Configure the modules ACL policies
+ */
+module.exports.initModulesServerPolicies = function (app) {
+    // Globbing policy files
+    config.files.server.policies.forEach(function (policyPath) {
+        require(path.resolve(policyPath)).invokeRolesPolicies();
+    });
+};
 
 /**
  * Configure the modules server routes
@@ -225,7 +234,7 @@ module.exports.init = function (db) {
     this.initModulesClientRoutes(app);
 
     // Initialize modules server authorization policies
-    //this.initModulesServerPolicies(app);
+    this.initModulesServerPolicies(app);
 
     // Initialize modules server routes
     this.initModulesServerRoutes(app);

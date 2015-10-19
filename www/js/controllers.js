@@ -26,6 +26,9 @@ define(['angular'], function () {
                         templateUrl: 'tpls/alert.html'
                     });
                 });
+                //$http.post('/api/auth/signup', {}).success(function (response) {
+                //}).error(function (response) {
+                //});
             };
 
             $scope.testGET = function () {
