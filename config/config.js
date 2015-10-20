@@ -139,7 +139,7 @@ var initGlobalConfigFiles = function (config, assets) {
     config.files.server.routes = getGlobbedPaths(assets.server.routes);
 
     // Setting Globbed config files
-    //config.files.server.configs = getGlobbedPaths(assets.server.config);
+    config.files.server.configs = getGlobbedPaths(assets.server.config);
 
     // Setting Globbed socket files
     //config.files.server.sockets = getGlobbedPaths(assets.server.sockets);

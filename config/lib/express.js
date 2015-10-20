@@ -127,11 +127,11 @@ module.exports.initSession = function (app, db) {
 /**
  * Invoke modules server configuration
  */
-//module.exports.initModulesConfiguration = function (app, db) {
-//    config.files.server.configs.forEach(function (configPath) {
-//        require(path.resolve(configPath))(app, db);
-//    });
-//};
+module.exports.initModulesConfiguration = function (app, db) {
+    config.files.server.configs.forEach(function (configPath) {
+        require(path.resolve(configPath))(app, db);
+    });
+};
 
 /**
  * Configure Helmet headers configuration
@@ -222,10 +222,10 @@ module.exports.init = function (db) {
     this.initViewEngine(app);
 
     // Initialize Express session
-    //this.initSession(app, db);
+    this.initSession(app, db);
 
     // Initialize Modules configuration
-    //this.initModulesConfiguration(app);
+    this.initModulesConfiguration(app);
 
     // Initialize Helmet security headers
     this.initHelmetHeaders(app);
