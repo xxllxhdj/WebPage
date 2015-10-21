@@ -30,16 +30,17 @@ var validateLocalStrategyEmail = function (email) {
 var UserSchema = new Schema({
     email: {
         type: String,
-        unique: true,
+        //unique: true,
+        unique: '此邮箱已注册',
+        required: '请输入用户名',
         lowercase: true,
         trim: true,
-        default: '',
-        validate: [validateLocalStrategyEmail, 'Please fill a valid email address']
+        validate: [validateLocalStrategyEmail, '请输入一个合法的邮箱']
     },
     username: {
         type: String,
-        unique: 'Username already exists',
-        required: 'Please fill in a username',
+        unique: '用户名已存在',
+        required: '请输入用户名',
         lowercase: true,
         trim: true
     },
@@ -56,7 +57,7 @@ var UserSchema = new Schema({
     },
     provider: {
         type: String,
-        required: 'Provider is required'
+        required: '支持不能为空'
     },
     providerData: {},
     additionalProvidersData: {},
@@ -66,7 +67,7 @@ var UserSchema = new Schema({
             enum: ['user', 'admin']
         }],
         default: ['user'],
-        required: 'Please provide at least one role'
+        required: '请至少提供一个角色'
     },
     updated: {
         type: Date
